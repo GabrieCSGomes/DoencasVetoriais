@@ -1,2 +1,2 @@
-# Doen-asVetoriais
+# DoencasVetoriais
 Projeto referente à disciplina Laboratório de Engenharia de Sofware da Universidade Federal do Pará 
