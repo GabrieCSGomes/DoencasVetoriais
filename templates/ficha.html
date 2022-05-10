@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 id="titulo">Bem-vindo {{ user.username }}!</h1>
+<h2 id="subtitulo">Cadastro de visitas</h1>
+  <br>
+  <form action="">
+    <fieldset class="grupo">
+      <div class="col-md-3">
+        <label for="municipio">Município</label>
+        <input type="text" name="municipio" id="municipio" required>
+      </div>
+
+      <div class="col-md-3">
+        <label for="localidade">Localidade</label>
+        <input type="text" name="localidade" id="localidade" required>
+      </div>
+
+      <div class="col-md-3">
+        <label for="quarteirao">Quarteirão</label>
+        <input type="text" name="quarteirao" id="quarteirao" required>
+      </div>
+    </fieldset>
+
+    <fieldset class="grupo">
+      <div class="col-md-3">
+        <label for="distrito">Distrito</label>
+        <input type="text" name="distrito" id="distrito" required>
+      </div>
+
+      <div class="col-md-3">
+        <label for="rua">Rua</label>
+        <input type="text" name="rua" id="rua" required>
+      </div>
+
+      <div class="col-md-3">
+        <label for="numero">Número</label>
+        <input type="text" name="numero" id="numero" required>
+      </div>
+      <div class="text-right">
+        <a href="{% url 'home' %}" class="btn btn-outline-primary">Voltar</a>
+        <button class="btn btn-primary">Enviar</button>
+    </div>
+    </fieldset>
+  </form>
+{% endblock content %}

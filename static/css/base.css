@@ -30,3 +30,8 @@ input, button{
 button:hover{
     background-color: gray;
 }
+
+button[type=submit] {
+    margin: auto;
+    display: block;
+}

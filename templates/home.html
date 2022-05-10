@@ -5,9 +5,9 @@
 {% block content %}
 {% if user.is_authenticated %}
   Bem-vindo {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Loggout</a></p>
+  <p><button type="submit"><a href="{% url 'logout' %}">Logout</a></button></p>
 {% else %}
   <p>Você não esta logado, tente novamente</p>
-  <a href="{% url 'login' %}">Login</a>
+  <button type="submit"> <a href="{% url 'login' %}">Login</a> </button>
 {% endif %}
 {% endblock %}
