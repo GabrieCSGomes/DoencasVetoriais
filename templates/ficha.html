@@ -5,42 +5,121 @@
 <h2 id="subtitulo">Cadastro de visitas</h1>
   <br>
   <form action="">
-    <fieldset class="grupo">
-      <div class="col-md-3">
+    <fieldset>
+      <div class="campo">
         <label for="municipio">Município</label>
         <input type="text" name="municipio" id="municipio" required>
       </div>
 
-      <div class="col-md-3">
-        <label for="localidade">Localidade</label>
-        <input type="text" name="localidade" id="localidade" required>
-      </div>
-
-      <div class="col-md-3">
-        <label for="quarteirao">Quarteirão</label>
-        <input type="text" name="quarteirao" id="quarteirao" required>
-      </div>
-    </fieldset>
-
-    <fieldset class="grupo">
-      <div class="col-md-3">
+      <div class="campo">
         <label for="distrito">Distrito</label>
-        <input type="text" name="distrito" id="distrito" required>
+        <select id="distrito" required>
+          <option selected disabled value="">Selecione</option>
+          <option>DAMOS</option>
+          <option>DAOUT</option>
+          <option>DAICO</option>
+          <option>DABEN</option>
+          <option>DAENT</option>
+          <option>DASAC</option>
+          <option>DABEL</option>
+          <option>DAGUA</option>
+        </select>
       </div>
 
-      <div class="col-md-3">
+      <div class="campo">
+        <label for="localidade">Localidade</label>
+        <select id="localidade" required>
+          <option selected disabled value="">Selecione</option>
+          <option>001 - Cidade Velha</option>
+          <option>002 - Campina</option>
+          <option>003 - Reduto</option>
+          <option>004 - Umarizal</option>
+          <option>005 - Telegrafo</option>
+          <option>006 - Sacramenta</option>
+          <option>007 - Pedreira</option>
+          <option>008 - Marco</option>
+          <option>009 - Souza</option>
+          <option>010 - Marambaia</option>
+          <option>011 - Canudos</option>
+          <option>012 - Fatima</option>
+          <option>013 - Sao Braz</option>
+          <option>014 - Nazare</option>
+          <option>015 - Batista Campos</option>
+          <option>016 - Jurunas</option>
+          <option>017 - Condor</option>
+          <option>018 - Guama</option>
+          <option>019 - Terra Firme</option>
+          <option>020 - Cremacao</option>
+          <option>021 - Val-de-Caes</option>
+          <option>022 - Miramar</option>
+          <option>023 - Pratinha</option>
+          <option>024 - Tapana</option>
+          <option>025 - Bengui</option>
+          <option>026 - Maracangalha</option>
+          <option>027 - Barreiro</option>
+          <option>028 - Universitario</option>
+          <option>029 - Curio-Utinga</option>
+          <option>030 - Aura</option>
+          <option>031 - Castanheira</option>
+          <option>032 - Aguas Lindas</option>
+          <option>033 - Guanabara</option>
+          <option>034 - Sao Clemente</option>
+          <option>035 - Parque Guajara</option>
+          <option>036 - Tenone</option>
+          <option>037 - Aguas Negras</option>
+          <option>038 - Maracacuera</option>
+          <option>039 - Parque Verde</option>
+          <option>040 - Cruzeiro</option>
+          <option>041 - Ponta Grossa</option>
+          <option>042 - Mangueirao</option>
+          <option>043 - Cabanagem</option>
+          <option>044 - Campina de Icoaraci</option>
+          <option>045 - Paracuri</option>
+          <option>046 - Agulha</option>
+          <option>047 - Una</option>
+          <option>048 - Coqueiro</option>
+          <option>050 - Cruzeiro</option>
+          <option>051 - Sao Joao do Outeiro</option>
+          <option>052 - Itaiteua</option>
+          <option>053 - Agua Negra</option>
+          <option>060 - Maracaja</option>
+          <option>061 - Vila</option>
+          <option>062 - Praia Grande</option>
+          <option>063 - Farol</option>
+          <option>064 - Mangueiras</option>
+          <option>065 - Sao Francisco</option>
+          <option>066 - Carananduba</option>
+          <option>067 - Marahu</option>
+          <option>068 - Paraiso</option>
+          <option>069 - Baia do Sol</option>
+          <option>070 - Sucurijuquara</option>
+          <option>071 - Caruara</option>
+          <option>072 - Bonfim</option>
+          <option>073 - Ariramba</option>
+          <option>074 - Murubira</option>
+          <option>075 - Porto Arthur</option>
+          <option>076 - Natal do Morumbira</option>
+          <option>077 - Chapeu Virado</option>
+          <option>078 - Aeroporto</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="">Quarteirão</label>
+        <input type="text" name="quarteirao" id="quartetirao" required>
+      </div>
+
+      <div class="campo">
         <label for="rua">Rua</label>
         <input type="text" name="rua" id="rua" required>
       </div>
 
-      <div class="col-md-3">
+      <div class="campo">
         <label for="numero">Número</label>
         <input type="text" name="numero" id="numero" required>
       </div>
-      <div class="text-right">
-        <a href="{% url 'home' %}" class="btn btn-outline-primary">Voltar</a>
-        <button class="btn btn-primary">Enviar</button>
-    </div>
     </fieldset>
+
+    <button class="botao" type="submit" onsubmit="">Cadastrar</button>
   </form>
-{% endblock content %}
+  {% endblock content %}

@@ -4,10 +4,11 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Bem-vindo {{ user.username }}!
-  <p><button type="submit"><a href="{% url 'logout' %}">Logout</a></button></p>
+<h1>Bem-vindo {{ user.username }}!</h1>
+<p><button type="submit"><a href="{% url 'ficha' %}">Cadastro</a></button></p>
+<p><button type="submit"><a href="{% url 'logout' %}">Logout</a></button></p>
 {% else %}
-  <p>Você não esta logado, tente novamente</p>
-  <button type="submit"> <a href="{% url 'login' %}">Login</a> </button>
+<h1>Você não esta logado, tente novamente</h1>
+<button type="submit"> <a href="{% url 'login' %}">Login</a> </button>
 {% endif %}
 {% endblock %}

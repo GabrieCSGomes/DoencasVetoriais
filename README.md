@@ -11,4 +11,5 @@ Para executar o código localmente, é necessário:
 python		3.10.4
 Django	 	3.1.14
 gunicorn	19.9.0
+whitenoise  5.1.0
 ```
