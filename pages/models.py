@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse 
 
 # Create your models here.
 class fichaVisita(models.Model):
@@ -38,3 +39,6 @@ class fichaVisita(models.Model):
     null=False,
     blank=False
   )
+
+  def get_absolute_url(self):
+    return reverse('ficha')
