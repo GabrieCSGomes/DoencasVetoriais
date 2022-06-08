@@ -1,49 +1,30 @@
 from django import forms
+from pages.models import FichaVisita, DistritosAdm, Endereco, Info, Equipe
 
-from pages.models import fichaVisita
-
-class InsereFichaVisita(forms.ModelForm):
-    municipio = forms.CharField(
-        required=True,
-        max_length=255
-    )
-
-    localidade = forms.CharField(
-        required=True,
-        max_length=255
-    )
-
-    quarteirao = forms.CharField(
-        required=True,
-        max_length=255
-    )
-
-    distrito = forms.CharField(
-        required=True,
-        max_length=255
-    )
-
-    rua = forms.CharField(
-        required=True,
-        max_length=255
-    )
-
-    numero = forms.IntegerField(
-        required=True
-    )
-
-    
-
+class FichaForm(forms.ModelForm):
     class Meta:
-        model = fichaVisita
+        model = FichaVisita
+        fields = ['categoria', 'quarto']
 
-        fields = [
-            'municipio',
-            'localidade',
-            'quarteirao',
-            'distrito',
-            'rua',
-            'numero',
-        ]
+class DistritosAdmForm(forms.ModelForm):
+    class Meta:
+        model = DistritosAdm
+        fields = ['distrito_saude', 'bairro', 'municipio']
 
-    
+class EnderecoForm(forms.ModelForm):
+    class Meta:
+        model = Endereco
+        fields = ['rua', 'complemento', 'numero', 'unidade_federacao']
+
+class InformacoesForm(forms.ModelForm):
+    class Meta:
+        model = Info
+        fields = ['atividade', 'data', 'hora']
+        widgets = {
+            'data': forms.DateInput(format= '%Y-%m-%d',attrs={'type': 'date'}),
+            'hora': forms.TimeInput(format= '%H:%M',attrs={'type': 'time'})}
+            
+class EquipeForm(forms.ModelForm):
+    class Meta:
+        model = Equipe
+        fields = ['nome_agente', 'cargo', 'responsavel']

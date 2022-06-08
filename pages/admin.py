@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import fichaVisita
+from .models import FichaVisita, DistritosAdm, Endereco, Info, Equipe
 
 # Register your models here.
-admin.site.register(fichaVisita)
+admin.site.register(FichaVisita)
+admin.site.register(DistritosAdm)
+admin.site.register(Endereco)
+admin.site.register(Info)
+admin.site.register(Equipe)
