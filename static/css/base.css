@@ -13,6 +13,11 @@ h1 {
     color: #E5E5E5;
 }
 
+a {
+    display: flex;
+    justify-content: center;
+}
+
 p {
     font-family: 'Inter';
     font-style: normal;
@@ -33,7 +38,6 @@ p {
     flex-direction: column;
     background-color: rgba(18, 18, 18, 0.85);
     margin: auto;
-    margin-top: 150px;
 }
 
 input,
@@ -54,16 +58,14 @@ button[type=submit] {
     display: block;
 }
 
-/* Elementos de tag <fieldset>*/
+/* Elementos de tag <fieldset>
 fieldset {
     border: 0;
-}
+}*/
 
 /* Elementos de tags <body>, <input>, <Select>, <textarea> e <button> */
-input,
 select,
-textarea,
-button {
+label {
     font-family: 'Inter';
     font-size: 1em;
 }
@@ -140,4 +142,14 @@ fieldset.grupo .campo {
 .botao,
 select {
     cursor: pointer;
+}
+
+form {
+    margin: auto;
+}
+
+label,
+input {
+    display: block;
+    font-size: 1.1 rem;
 }
