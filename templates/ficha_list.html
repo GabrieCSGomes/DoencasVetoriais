@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+    
+    {% block content %}
+        {% if object_list %}
+            {% for ficha in object_list %}
+            <div class="boxed">
+                <!--TABELA HTML-->
+                <table>
+                    <tr>
+                        <th>Ficha ID</th>
+                        <th>UF</th>
+                        <th>MUNICIPIO</th>
+                        <th>DISTRITO</th>
+                        <th>RUA</th>
+                        <th>Nº IMOVEL</th>
+                        <th>ATIVIDADE</th>
+                        <th>NOME</th>
+                    </tr>
+                    <tr>
+                        <td><a href="{% url 'ficha_read' ficha.pk %}">{{ficha.pk}}</a></td>
+                        <td>{{ficha.endereco.unidade_federacao}}</td>
+                        <td>{{ficha.distrito.municipio}}</td>
+                        <td>{{ficha.distrito.distrito_saude}}</td>
+                        <td>{{ficha.endereco.rua}}</td>
+                        <td>{{ficha.endereco.numero}}</td>
+                        <td>{{ficha.infos.atividade}}</td>
+                        <td>{{ficha.infos.equipe.nome_agente}}</td>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h1>Nenhuma ficha encontrada.</h1>
+        {% endif %}
+        <button type="submit" class="botao"><a href="{% url 'home' %}">Início</a></button>
+    </div>
+    {% endblock content %}

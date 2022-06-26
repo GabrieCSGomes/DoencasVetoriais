@@ -5,7 +5,8 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h1>Bem-vindo {{ user.username }}!</h1>
-        <p><button type="submit"><a href="{% url 'ficha' %}">Cadastro</a></button></p>
+        <p><button type="submit"><a href="{% url 'ficha_create' %}">Cadastro de Ficha</a></button></p>
+        <p><button type="submit"><a href="{% url 'ficha_list' %}">Lista de Fichas</a></button></p>
         <p><button type="submit"><a href="{% url 'logout' %}">Logout</a></button></p>
     {% else %}
         <h1>Você não esta logado, tente novamente</h1>

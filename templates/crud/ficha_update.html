@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <h1 id="titulo">Editar Ficha de Visita</h1>
+        <br>
+        <form action="" method="post">
+            {% csrf_token %}
+        
+            <!--TODO: Formatar em html-->
+            {{ ficha_form.as_p }}
+            {{ distrito_form.as_p }}
+            {{ endereco_form.as_p }}
+            {{ informacoes_form.as_p }}
+            {{ equipe_form.as_p }}
+        
+            <button class="botao" type="submit" value="Update">Atualizar</button>
+            <br>
+            <button type="submit" class="botao"><a href="{% url 'home' %}">Voltar</a></button>
+        </form>
+
+    {% endblock content %}
