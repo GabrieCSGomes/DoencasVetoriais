@@ -5,11 +5,9 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h1>Bem-vindo {{ user.username }}!</h1>
-        <p><button type="submit"><a href="{% url 'ficha_create' %}">Cadastro de Ficha</a></button></p>
-        <p><button type="submit"><a href="{% url 'ficha_list' %}">Lista de Fichas</a></button></p>
-        <p><button type="submit"><a href="{% url 'logout' %}">Logout</a></button></p>
+        <p><button type="button"><a href="{% url 'ficha_create' %}">Cadastro de Ficha</a></button></p>
+        <p><button type="button"><a href="{% url 'ficha_list' %}">Lista de Fichas</a></button></p>
     {% else %}
-        <h1>Você não esta logado, tente novamente</h1>
-        <button type="submit"> <a href="{% url 'login' %}">Login</a> </button>
+        <h1>Você não está logado, tente novamente</h1>
     {% endif %}
 {% endblock %}

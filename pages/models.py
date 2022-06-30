@@ -115,7 +115,7 @@ class DistritosAdm(models.Model): #TABLE DA
     choices=distritos,
     null=False,
     blank=False,
-    default='DAMOS',
+    default='DABEL',
     verbose_name='DA'
   )
 
@@ -123,6 +123,7 @@ class DistritosAdm(models.Model): #TABLE DA
     choices=bairros.choices,
     null=False,
     blank=False,
+    default=bairros.CONDOR,
   )
 
   municipio = models.CharField(

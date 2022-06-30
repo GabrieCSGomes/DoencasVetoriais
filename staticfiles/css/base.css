@@ -1,155 +1,194 @@
-/* Elemento de tag <body>, <HTML> */
-body,
-html {
-    background-image: linear-gradient(60deg, #CBDEB7, #95C664);
-}
+/*header da página*/
+    header {
+        background-color: #eef4e6;
+        padding: 20px;
+        border-bottom: 1px solid #e5e5e5;
+        display: block;
+        margin-bottom: 10px;
+    }
 
-/* Elementos com o ID "titulo" */
-h1 {
-    margin: auto;
-    padding: 15px;
-    font-family: 'Inter';
-    font-style: normal;
-    color: #E5E5E5;
-}
+/*footer da página*/
+    footer {
+        background-color: #eff4e5;
+        padding: 20px;
+        border-top: 1px solid #e5e5e5;
+        display: block;
+        margin-top: 10px;
+    }
 
-a {
-    display: flex;
-    justify-content: center;
-}
+/*navbar com botão*/
+    .nav-right {
+        float: right;
+        display: block;
+    }
 
-p {
-    font-family: 'Inter';
-    font-style: normal;
-    color: #E5E5E5;
-}
+    button.right-button {
+        height: 45px;
+        margin: auto;
+    }
 
-/* Elementos com o ID "subtitulo" */
-#subtitulo {
-    font-family: 'Inter';
-    color: #E5E5E5;
-    margin: auto;
-}
+/*container do conteúdo da página*/
+    .container {
+        width: auto;
+        padding: 10px 50px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+        align-items: center;
+        background-color: #eff4e5;
+        border-radius: 10px;
+    }
 
-/* Elementos do container */
-.container {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(18, 18, 18, 0.85);
-    margin: auto;
-}
+/*itens comuns*/
+    a {
+        color: #00447a;
+        text-decoration: none;
+    }
+    
+    /*botões com hyperlink*/
+    button a {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        padding: 1em;
+        margin:-1em;
+    }
 
-input,
-button {
-    height: 60px;
-    font-size: 1.2rem;
-    padding: 0 20px;
-    border-radius: 10px;
-    cursor: pointer;
-}
+    /*para botões com hyperlink (cancelar, voltar)*/
+    a.atention , p.atention {
+        color: #be0000;
+    }
 
-button:hover {
-    background-color: gray;
-}
+    h1, h2 {
+        color: #00447a;
+        display: inline;
+        font-family: 'Roboto', sans-serif;
+    }
 
-button[type=submit] {
-    margin: auto;
-    display: block;
-}
+    /*botões*/
+        button {
+            color: #00447a;
+            height: 60px;
+            font-size: 1.2rem;
+            padding: 0 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: #e5e5e5 1px solid;
+            margin: auto;
+            display: block;
+        }
 
-/* Elementos de tag <fieldset>
-fieldset {
-    border: 0;
-}*/
+        button:hover, button:focus {
+            color: #ffffff;
+            background-color: #00447a;
+        }
 
-/* Elementos de tags <body>, <input>, <Select>, <textarea> e <button> */
-select,
-label {
-    font-family: 'Inter';
-    font-size: 1em;
-}
+        button:hover a, button:focus a {
+            color: #ffffff;
+        }
 
-/* Elementos de classe "grupo" nos estados das pseudoclasses "before" e "after" */
-.grupo:before,
-.grupo:after {
-    display: table;
-}
+        button[type=submit]:hover, button[type=submit]:focus {
+            background-color: #95c664;
+        }
 
-/* Elementos de classe "grupo" no estado da pseudoclasse "after" */
-.grupo:after {
-    clear: both;
-}
+        button.delete:hover, button.delete:focus {
+            background-color: #be0000;
+        }
 
-/* Elementos de classe "campo" */
-.campo {
-    margin-bottom: 1em;
-}
+    p {
+        font-weight: bold;
+        color: #7a7a7a;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+    }
 
-/* Elementos de classe "campo" de tag <label> */
-.campo label {
-    margin-bottom: 0.2em;
-    color: #E5E5E5;
-    display: block;
-}
+/*formulário*/
+    form {
+        margin: auto;
+    }
 
-/* Elementos de classe "campo" ou "grupo" de tag <fieldset> */
-fieldset.grupo .campo {
-    float: left;
-    margin-right: 1em;
-}
+    label {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 0.2em;
+        text-align: left;
+    }
 
-/* Elementos de classe "campo" das tags <input> com atributo text e email, da tag <select> e da tag <textarea>*/
-.campo input[type="text"],
-.campo input[type="email"],
-.campo select,
-.campo textarea {
-    padding: 0.2em;
-    border: 1px solid #E5E5E5;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-    display: block;
-}
+    input, select {
+        width: 100%;
+        height: 60px;
+        font-size: 1.2rem;
+        padding: 0 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+        margin: auto;
+        border: #e5e5e5 1px solid;
+        box-shadow: 2px 2px 2px #e5e5e5;
+    }
 
-/* Elementos de classe "campo" de tag <select> e <option>*/
-.campo select option {
-    padding-right: 1em;
-}
+/*Botões na mesma linha em <div>*/
+    .same-row {
+        padding: 20px;
+        column-gap: 20px;
+        display: flex;
+        flex-direction: row;
+    }
 
-/* Elemento de classe "campo" com tag <input>, <select> e <textarea> tocas com estado da pseudoclasse "focus"*/
-.campo input:focus,
-.campo select:focus,
-.campo textarea:focus {
-    background: #E0E0F8;
-}
+/*Tabela*/
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: auto;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+        empty-cells: hide;
+        box-shadow: 2px 2px 2px #e5e5e5;
+    }
 
-/* Elemento de classe "botao" */
-.botao {
-    font-size: 1.2em;
-    border: 0;
-    margin-bottom: 1em;
-    color: #000000;
-    padding: 0.2em 0.6em;
-}
+    table, td, th {
+        border: #7a7a7a 1px solid;
+        text-align: center;
+        vertical-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
 
-/* Elemento de classe "botao" com o estado da pseudoclasse "hover" */
-.botao:hover {
-    background: #CCBBFF;
-    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2);
-    text-shadow: none;
-}
+    th, td {
+        padding: 5px;
+        border-spacing: 10px;
+        height: 40px;
+    }
 
-/* Elementos de classe botão e de tag <select> */
-.botao,
-select {
-    cursor: pointer;
-}
+    th {
+        height: 40px;
+        background-color: #e5e5e5;
+    }
 
-form {
-    margin: auto;
-}
+    caption {
+        caption-side: bottom;
+    }
 
-label,
-input {
-    display: block;
-    font-size: 1.1 rem;
-}
+/*Outras formatações*/
+    hr {
+        border: 0;
+        height: 1px;
+    }
+
+    br{
+        display: block;
+        content: "";
+        clear: both;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .flex-wrapper {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: space-between;
+      }

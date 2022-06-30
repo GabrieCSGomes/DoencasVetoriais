@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 
     {% block content %}
-        <h1 id="titulo">Deletar Ficha de Visita</h1>
-        <br>
-        <form action="" method="post">
-            {% csrf_token %}
-            <p>Tem certeza que deseja deletar a ficha ID:{{object.pk}}?</p>
-        
-            <button class="botao" type="submit" value="Confirm">Apagar</button>
+        {% if user.is_authenticated %}
+            <h1>Deletar Ficha de Visita</h1>
             <br>
-            <button type="submit" class="botao"><a href="{% url 'ficha_read' object.pk%}">Voltar</a></button>
-        </form>
+            <form action="" method="post">
+                {% csrf_token %}
+                <p class="atention">Tem certeza que deseja deletar a ficha ID:{{object.pk}}?</p>
+                <div class="same-row">
+                    <button class="delete" type="submit"><a class="atention">Apagar</a></button>
+                    <br>
+                    <button type="button"><a href="{% url 'ficha_read' object.pk%}">Voltar</a></button>
+                </div>
+            </form>
+        {% else %}
+            <h1>Você não está logado, tente novamente</h1>
+        {% endif %}
     {% endblock content %}

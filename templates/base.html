@@ -5,13 +5,26 @@
         <title>Doencas Vetoriais</title>
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     </head>
-    <div>
-        <h1><a href="{% url 'home' %}">Sistema de Registro de Doenças Vetoriais</a></h1>
-    </div>
-    <body>
+    <header>
+        <div>
+            <h1><a href="{% url 'home' %}">Sistema de Registro de Doenças Vetoriais</a></h1>
+            <div class="nav-right">
+                {% if user.is_authenticated %}
+                    <button class="right-button" type="button"><a class="atention" href="{% url 'logout' %}">Logout</a></button>
+                {% else %}
+                    <button class="right-button" type="button"> <a href="{% url 'login' %}">Login</a> </button>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <body class="flex-wrapper">
         <div class="container">
             {% block content %}
             {% endblock %}
         </div>
+        <footer>
+            <div class="footer-container">
+                <p>&copy; 2022 - LABES Equipe 3</p>
+        </footer>
     </body>
 </html>
