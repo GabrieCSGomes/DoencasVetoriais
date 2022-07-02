@@ -202,3 +202,4 @@ ipython_config.py
 distritos.json
 db.sqlite3
 .env
+TODO.md

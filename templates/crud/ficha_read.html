@@ -1,59 +1,66 @@
 {% extends 'base.html' %}
     
-    {% block content %}
-        {% if user.is_authenticated %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">{{ message.text }}</div>
-                {% endfor %}
-            {% endif %}
-            <div class="container">
-                <h2>Ficha de Visita Domiliciar Digital (ID:{{object.pk}}) </h2>
-                <hr>
-                <!--TABELA HTML-->
-                <table>
-                    <tr>
-                        <th>UF</th>
-                        <th>MUNICIPIO</th>
-                        <th>CATEGORIA</th>
-                        <th>LOCALIDADE</th>
-                        <th>QUARTO</th>
-                        <th>DISTRITO</th>
-                        <th>RUA</th>
-                        <th>Nª IMOVEL</th>
-                    </tr>
-                    <tr>
-                        <td>{{object.endereco.unidade_federacao}}</td>
-                        <td>{{object.distrito.municipio}}</td>
-                        <td>{{object.categoria}}</td>
-                        <td>{{object.distrito.bairro}}</td>
-                        <td>{{object.quarto}}</td>
-                        <td>{{object.distrito.distrito_saude}}</td>
-                        <td>{{object.endereco.rua}}</td>
-                        <td>{{object.endereco.numero}}</td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <th>DATA</th>
-                        <th>HORA</th>
-                        <th>ATIVIDADE</th>
-                        <th>NOME</th>
-                    </tr>
-                    <tr>
-                        <td>{{object.infos.data}}</td>
-                        <td>{{object.infos.hora}}</td>
-                        <td>{{object.infos.atividade}}</td>
-                        <td>{{object.infos.equipe.nome_agente}}</td>
-                    </tr>
-                </table>
-                <div class="same-row">
-                    <button type="button"><a href="{% url 'ficha_update' object.pk%}">Atualizar</a></button>
-                    <button type="button" class="delete"><a href="{% url 'ficha_delete' object.pk%}">Apagar</a></button>
-                    <button type="button"><a href="{% url 'home' %}">Início</a></button>
-                </div>
-            </div>
-        {% else %}
-            <h1>Você não está logado.</h1>
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if messages %}
+            {% for message in messages %}
+                <div><p class="sys-message">{{ message }}</p></div>
+            {% endfor %}
         {% endif %}
-    {% endblock content %}
+        <div class="container">
+            <h2>Ficha de Visita Domiliciar Digital (ID:{{object.pk}}) </h2>
+            <hr>
+            <!--TABELA HTML-->
+            <table>
+                <tr>
+                    <th>UF</th>
+                    <th>MUNICIPIO</th>
+                    <th>CATEGORIA</th>
+                    <th>LOCALIDADE</th>
+                    <th>QUARTO</th>
+                    <th>DISTRITO</th>
+                    <th>RUA</th>
+                    <th>Nª IMOVEL</th>
+                </tr>
+                <tr>
+                    <td>{{object.endereco.unidade_federacao}}</td>
+                    <td>{{object.distrito.municipio}}</td>
+                    <td>{{object.categoria}}</td>
+                    <td>{{object.distrito.bairro}}</td>
+                    <td>{{object.quarto}}</td>
+                    <td>{{object.distrito.distrito_saude}}</td>
+                    <td>{{object.endereco.rua}}</td>
+                    <td>{{object.endereco.numero}}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>DATA</th>
+                    <th>HORA</th>
+                    <th>ATIVIDADE</th>
+                    <th>NOME</th>
+                    <th class="atention">Deletar Linha</th>
+                    <th><a>Editar Linha</a></th>
+                </tr>
+                {% for info in infos %}
+                <tr>
+                    <td>{{info.data|date:"d/m/Y"}}</td>
+                    <td>{{info.hora|time:"H:i"}}</td>
+                    <td>{{info.atividade}}</td>
+                    <td>{{info.equipe.nome_agente}}</td>
+                    <td><a class="atention" href="{% url 'info_delete' object.id info.id %}">X</a></td>
+                    <td><a href="{% url 'info_update' object.id info.id %}">Editar</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="same-row">
+                <button type="button"><a href="{% url 'ficha_update' object.pk %}">Editar ficha</a></button>
+                <button type="button"><a href="{% url 'info_create' object.id %}">Adicionar informações</a></button>
+                <button type="button" class="delete"><a href="{% url 'ficha_delete' object.pk %}">Apagar</a></button>
+                <button type="button"><a href="{% url 'home' %}">Início</a></button>
+            </div>
+        </div>
+    {% else %}
+        <h1>Você não está logado.</h1>
+    {% endif %}
+{% endblock content %}

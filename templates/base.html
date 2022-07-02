@@ -12,7 +12,7 @@
                 {% if user.is_authenticated %}
                     <button class="right-button" type="button"><a class="atention" href="{% url 'logout' %}">Logout</a></button>
                 {% else %}
-                    <button class="right-button" type="button"> <a href="{% url 'login' %}">Login</a> </button>
+                    <button class="right-button" type="button"><a href="{% url 'login' %}">Login</a></button>
                 {% endif %}
             </div>
         </div>
@@ -23,8 +23,13 @@
             {% endblock %}
         </div>
         <footer>
-            <div class="footer-container">
-                <p>&copy; 2022 - LABES Equipe 3</p>
+            <a href="https://sesma.belem.pa.gov.br">
+                <img src="https://sesma.belem.pa.gov.br/wp-content/uploads/elementor/thumbs/logo-sesma-horizontal-p2rqe96zikgpljyhy7jbl97tqo6nyy25hwudqkl1im.png" alt="Logo">
+            </a>
+            <div class="tooltip">
+                <p>&copy; 2022 - LABES Equipe 3<br>Projeto sem ligação com a prefeitura municipal</p>
+                <span class="tooltiptext">Feito com muito **** <3</span>
+            </div>
         </footer>
     </body>
 </html>

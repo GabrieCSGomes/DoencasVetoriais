@@ -2,35 +2,47 @@
     
 {% block content %}
     {% if user.is_authenticated %}
+        {% if messages %}
+            {% for message in messages %}
+                <div><p class="sys-message">{{ message }}</p></div>
+            {% endfor %}
+        {% endif %}
         <h1>Fichas cadastradas</h1>
             {% if object_list %}
-                {% for ficha in object_list %}
                 <p>Clique no ID para mais informações</p>
-                <div class="container">
-                    <!--TABELA HTML-->
-                    <table>
-                        <tr>
-                            <th>Ficha ID</th>
-                            <th>UF</th>
-                            <th>MUNICIPIO</th>
-                            <th>DISTRITO</th>
-                            <th>RUA</th>
-                            <th>Nº IMOVEL</th>
-                            <th>ATIVIDADE</th>
-                            <th>NOME</th>
-                        </tr>
-                        <tr>
-                            <td><a href="{% url 'ficha_read' ficha.pk %}">{{ficha.pk}}</a></td>
-                            <td>{{ficha.endereco.unidade_federacao}}</td>
-                            <td>{{ficha.distrito.municipio}}</td>
-                            <td>{{ficha.distrito.distrito_saude}}</td>
-                            <td>{{ficha.endereco.rua}}</td>
-                            <td>{{ficha.endereco.numero}}</td>
-                            <td>{{ficha.infos.atividade}}</td>
-                            <td>{{ficha.infos.equipe.nome_agente}}</td>
-                        </tr>
-                    </table>
-                </div>
+                {% for ficha in object_list %}
+                    <div class="container">
+                        <table>
+                            <tr>
+                                <th>Ficha ID</th>
+                                <th>MUNICIPIO/UF</th>
+                                <th>DISTRITO</th>
+                                <th>LOCALIDADE</th>
+                                <th>RUA</th>
+                                <th>Nº IMOVEL</th>
+                                <th>ÚLTIMA ATIVIDADE</th>
+                                <th>NOME</th>
+                            </tr>
+                            <tr>
+                                <td><a href="{% url 'ficha_read' ficha.pk %}">{{ficha.pk}}</a></td>
+                                <td>{{ficha.distrito.municipio}}/{{ficha.endereco.unidade_federacao}}</td>
+                                <td>{{ficha.distrito.distrito_saude}}</td>
+                                <td>{{ficha.distrito.bairro}}</td>
+                                <td>{{ficha.endereco.rua}}</td>
+                                <td>{{ficha.endereco.numero}}</td>
+                                <td>{% for info in infos %}
+                                        {% if ficha.id == info.ficha.id %}
+                                            {{info.atividade}}
+                                        {% endif %}
+                                    {% endfor %}</td>
+                                <td>{% for info in infos %}
+                                        {% if ficha.id == info.ficha.id %}
+                                            {{info.equipe.nome_agente}}
+                                        {% endif %}
+                                    {% endfor %}</td> 
+                            </tr>
+                        </table>
+                    </div>
                 {% endfor %}
             {% else %}
                 <p>Nenhuma ficha encontrada.</p>

@@ -2,14 +2,14 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>Deletar Ficha de Visita</h1>
+        <h1>Apagar informações da Ficha ID:{{object.ficha.pk}}</h1>
         <br>
         <form action="" method="post">
             {% csrf_token %}
-            <p class="atention">Tem certeza que deseja deletar a ficha ID:{{object.pk}}?</p>
+            <p class="atention">Tem certeza que deseja deletar a informação? (Info ID:{{object.pk}})</p>
             <div class="same-row">
                 <button class="delete" type="submit"><a class="atention">Apagar</a></button>
-                <button type="button"><a href="{% url 'ficha_read' object.pk %}">Voltar</a></button>
+                <button type="button"><a href="{% url 'ficha_read' object.ficha.pk %}">Voltar</a></button>
             </div>
         </form>
     {% else %}

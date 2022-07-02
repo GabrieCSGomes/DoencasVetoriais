@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h1>Adicionar informações a ficha ID:{{ficha_id}}</h1>
+      <br>
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <!--TODO: Formatar em html-->
+        {{ informacoes_form.as_p }}
+        {{ equipe_form.as_p }}
+        
+        <div class="same-row">
+          <button type="submit" onsubmit="">Cadastrar</button>
+          <button type="button"><a class="cancel" href="{% url 'ficha_read' ficha_id %}">Voltar</a></button>
+        </div>
+      </form>
+  {% else %}
+    <h1>Você não está logado, tente novamente</h1>
+  {% endif %}
+{% endblock content %}

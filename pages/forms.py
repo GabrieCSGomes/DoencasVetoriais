@@ -1,5 +1,6 @@
 from django import forms
 from pages.models import FichaVisita, DistritosAdm, Endereco, Info, Equipe
+import datetime
 
 class FichaForm(forms.ModelForm):
     class Meta:
@@ -23,6 +24,12 @@ class InformacoesForm(forms.ModelForm):
         widgets = {
             'data': forms.DateInput(format= '%Y-%m-%d',attrs={'type': 'date'}),
             'hora': forms.TimeInput(format= '%H:%M',attrs={'type': 'time'})}
+        
+    def clean_data(self):
+        data = self.cleaned_data['data']
+        if data > datetime.date.today():
+            raise forms.ValidationError('! [Data maior que a data de hoje] !')
+        return data
             
 class EquipeForm(forms.ModelForm):
     class Meta:

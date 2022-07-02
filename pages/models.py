@@ -20,8 +20,6 @@ class FichaVisita(models.Model): # TABLE Ficha
       blank=False
     )
 
-  infos = models.ForeignKey('Info', on_delete=models.CASCADE, verbose_name='Informações')
-
   def get_absolute_url(self):
     return reverse('ficha')
 
@@ -148,7 +146,7 @@ class Endereco(models.Model): #TABLE Endereco
     complemento = models.CharField(
       max_length=255,
       null=False,
-      blank=False
+      blank=True,
     )
 
     numero = models.PositiveIntegerField(
@@ -171,6 +169,8 @@ class Endereco(models.Model): #TABLE Endereco
 
 class Info(models.Model): #TABLE Info
   
+    ficha = models.ForeignKey('FichaVisita', on_delete=models.CASCADE)
+
     data = models.DateField()
   
     hora = models.TimeField()

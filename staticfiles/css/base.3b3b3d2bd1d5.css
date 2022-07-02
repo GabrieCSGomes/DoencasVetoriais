@@ -2,17 +2,22 @@
     header {
         background-color: #eef4e6;
         padding: 20px;
-        border-bottom: 1px solid #e5e5e5;
+        border-bottom: 2px solid #00447a;
         display: block;
         margin-bottom: 10px;
+        background-image: url("https://sesma.belem.pa.gov.br/wp-content/uploads/2021/02/topo-branco.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
     }
 
 /*footer da página*/
     footer {
         background-color: #eff4e5;
         padding: 20px;
-        border-top: 1px solid #e5e5e5;
-        display: block;
+        border-top: 2px solid #00447a;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         margin-top: 10px;
     }
 
@@ -45,25 +50,14 @@
         color: #00447a;
         text-decoration: none;
     }
-    
-    /*botões com hyperlink*/
-    button a {
-        display: inline-block;
-        position: relative;
-        z-index: 1;
-        padding: 1em;
-        margin:-1em;
-    }
 
-    /*para botões com hyperlink (cancelar, voltar)*/
-    a.atention , p.atention {
+    .atention {
         color: #be0000;
     }
 
     h1, h2 {
         color: #00447a;
         display: inline;
-        font-family: 'Roboto', sans-serif;
     }
 
     /*botões*/
@@ -96,11 +90,40 @@
             background-color: #be0000;
         }
 
+        /*Botões na mesma linha em <div>*/
+        .same-row {
+            padding: 20px;
+            column-gap: 20px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        /*botões com hyperlink*/
+        button a {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            padding: 1em;
+            margin:-1em;
+        }
+
     p {
         font-weight: bold;
         color: #7a7a7a;
-        font-family: 'Roboto', sans-serif;
         font-style: normal;
+    }
+
+    .errorlist li {
+        background: #ffe5e5;
+        color: #be0000;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
 /*formulário*/
@@ -128,14 +151,6 @@
         box-shadow: 2px 2px 2px #e5e5e5;
     }
 
-/*Botões na mesma linha em <div>*/
-    .same-row {
-        padding: 20px;
-        column-gap: 20px;
-        display: flex;
-        flex-direction: row;
-    }
-
 /*Tabela*/
     table {
         border-collapse: collapse;
@@ -152,7 +167,6 @@
         border: #7a7a7a 1px solid;
         text-align: center;
         vertical-align: center;
-        font-family: 'Roboto', sans-serif;
     }
 
     th, td {
@@ -184,6 +198,7 @@
 
     body {
         margin: 0;
+        font-family: 'Roboto', sans-serif;
     }
 
     .flex-wrapper {
@@ -192,3 +207,42 @@
         flex-direction: column;
         justify-content: space-between;
       }
+    
+    .sys-message {
+        color: #fc5a29;
+    }
+
+/*Caixa flutuante*/
+    /* Tooltip container */
+    .tooltip {
+        position: relative;
+        border-bottom: 1px dotted #eff4e5;
+        font-size: small;
+        text-align: right;
+        display: flex;
+        float: right;
+      }
+  
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: transparent;
+        background-image: linear-gradient(120deg, #50B3D8 0%, #00447a 100%);
+        color: #eff4e5;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 10px;
+        font-size: small;
+   
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        right: 5%;
+    }
+  
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }

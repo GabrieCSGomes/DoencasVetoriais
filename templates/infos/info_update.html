@@ -2,15 +2,14 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>Editar Ficha de Visita (ID:{{ficha_id}})</h1>
+        <h1>Editar informações (ID:{{info_id}}) - Ficha ID:{{ficha_id}}</h1>
         <br>
         <form action="" method="post">
             {% csrf_token %}
-        
+            
             <!--TODO: Formatar em html-->
-            {{ ficha_form.as_p }}
-            {{ distrito_form.as_p }}
-            {{ endereco_form.as_p }}
+            {{ informacoes_form.as_p }}
+            {{ equipe_form.as_p }}
             
             <div class="same-row">
                 <button type="submit" value="Update">Atualizar</button>
